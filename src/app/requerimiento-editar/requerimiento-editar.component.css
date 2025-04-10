@@ -1,0 +1,112 @@
+/* requerimiento-editar.component.css */
+.container.editar-requerimiento {
+    padding: 30px;
+    font-family: sans-serif; /* Fuente más moderna */
+  }
+  
+  h2 {
+    color: #1A3B6F; /* Azul oscuro principal de ADRES */
+    margin-bottom: 25px;
+    border-bottom: 3px solid #00A79D; /* Verde acento de ADRES */
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  .formulario-editar {
+    background-color: #F7F9FC; /* Fondo claro similar al de la lista */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Diseño de cuadrícula adaptable */
+    gap: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  .formulario-editar > div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  input[type="number"],
+  input[type="text"],
+  input[type="date"],
+  textarea {
+    padding: 10px;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    min-height: 100px;
+    width: 100%; /* Asegurar que el textarea ocupe el ancho de su contenedor */
+  }
+  
+  div > span {
+    color: #FF4500; /* Naranja rojizo para los mensajes de error */
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  
+  .form-actions {
+    grid-column: 1 / -1; /* Los botones ocupan toda la fila */
+    display: flex;
+    justify-content: center; /* Centrar los botones */
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .form-actions button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+  
+  .form-actions button[type="submit"] {
+    background-color: #00A79D; /* Verde acento para Guardar Cambios */
+  }
+  
+  .form-actions button[type="submit"]:hover {
+    background-color: #008077;
+  }
+  
+  .form-actions button:last-child {
+    background-color: #1A3B6F; /* Azul oscuro para Cancelar */
+  }
+  
+  .form-actions button:last-child:hover {
+    background-color: #132B52;
+  }
+  
+  .documentacion-campo {
+    grid-column: 1 / -1; /* Campo de documentación ocupa todo el ancho */
+  }
+  
+  /* Estilos para pantallas más pequeñas */
+  @media (max-width: 600px) {
+    .formulario-editar {
+      grid-template-columns: 1fr;
+      max-width: 95%;
+      margin: 15px auto;
+    }
+  
+    .form-actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+  }

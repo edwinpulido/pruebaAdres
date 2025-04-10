@@ -1,0 +1,115 @@
+/* requerimiento-detalle.component.css */
+.container.detalle-requerimiento {
+    padding: 30px;
+    font-family: sans-serif; /* Fuente más moderna */
+  }
+  
+  h2 {
+    color: #1A3B6F; /* Azul oscuro principal de ADRES */
+    margin-bottom: 25px;
+    border-bottom: 3px solid #00A79D; /* Verde acento de ADRES */
+    padding-bottom: 10px;
+  }
+  
+  .requerimiento-detalles {
+    margin-bottom: 30px;
+    background-color: #F7F9FC; /* Fondo claro similar al de la lista */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .requerimiento-detalles p {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .requerimiento-detalles p strong {
+    font-weight: bold;
+    color: #1A3B6F;
+    margin-right: 5px;
+  }
+  
+  h3 {
+    color: #1A3B6F; /* Azul oscuro principal de ADRES */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #00A79D; /* Verde acento de ADRES */
+    padding-bottom: 5px;
+  }
+  
+  .historial-modificaciones {
+    margin-bottom: 30px;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+    border: 1px solid #E0E0E0; /* Borde sutil para la tabla */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  .requerimientos-table {
+    width: 100%;
+    border-collapse: collapse; /* Evitar bordes dobles */
+  }
+  
+  .mat-header-cell {
+    font-weight: bold;
+    padding: 16px;
+    background-color: #F7F9FC; /* Fondo claro para las celdas de encabezado */
+    color: #1A3B6F; /* Azul oscuro para el texto del encabezado */
+    border-bottom: 2px solid #00A79D; /* Línea inferior verde para el encabezado */
+    text-align: left; /* Alinear texto a la izquierda por defecto */
+  }
+  
+  .mat-cell {
+    padding: 16px;
+    border-bottom: 1px solid #E0E0E0;
+    text-align: left; /* Alinear texto a la izquierda por defecto */
+  }
+  
+  .mat-row:last-child .mat-cell {
+    border-bottom: none;
+  }
+  
+  .form-actions {
+    text-align: left; /* Alinear el botón a la izquierda */
+  }
+  
+  .form-actions button {
+    background-color: #1A3B6F !important; /* Azul oscuro para el botón Volver */
+    color: white !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
+    font-weight: bold !important;
+    transition: background-color 0.3s ease !important;
+  }
+  
+  .form-actions button:hover {
+    background-color: #132B52 !important; /* Azul más oscuro al pasar el mouse */
+  }
+  
+  /* Estilos para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .table-responsive {
+      border: none; /* Ocultar borde en pantallas pequeñas si es necesario */
+      box-shadow: none;
+    }
+  
+    .requerimientos-table {
+      border: 1px solid #E0E0E0; /* Añadir borde a la tabla en pantallas pequeñas si se oculta el contenedor */
+      border-radius: 8px;
+    }
+  
+    .mat-header-cell:not(:first-child),
+    .mat-cell:not(:first-child) {
+      padding-right: 16px;
+    }
+  
+    .mat-cell:first-child,
+    .mat-header-cell:first-child {
+      padding-left: 16px;
+    }
+  }

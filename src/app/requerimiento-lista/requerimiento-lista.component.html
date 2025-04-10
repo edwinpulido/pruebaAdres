@@ -1,0 +1,104 @@
+<div class="container">
+  <h2>Lista de Requerimientos</h2>
+  <div class="header-actions">
+    <button mat-stroked-button color="primary" routerLink="/requerimientos/crear">Crear Nuevo Requerimiento</button>
+  </div>
+
+  <div class="filtros">
+    <mat-form-field appearance="outline">
+      <mat-label>Presupuesto</mat-label>
+      <input matInput [(ngModel)]="filtroPresupuesto">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Unidad</mat-label>
+      <input matInput [(ngModel)]="filtroUnidad">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Tipo Bien/Servicio</mat-label>
+      <input matInput [(ngModel)]="filtroTipoBienServicio">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha Adquisición</mat-label>
+      <input matInput [(ngModel)]="filtroFechaAdquisicion" placeholder="YYYY-MM-DD">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Proveedor</mat-label>
+      <input matInput [(ngModel)]="filtroProveedor">
+    </mat-form-field>
+
+    <div class="filter-buttons">
+      <button mat-raised-button color="accent" (click)="aplicarFiltros()">Filtrar</button>
+      <button mat-stroked-button (click)="limpiarFiltros()">Limpiar Filtros</button>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table mat-table [dataSource]="requerimientos" class="mat-elevation-z8 requerimientos-table">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let requerimiento">{{ requerimiento.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="presupuesto">
+        <th mat-header-cell *matHeaderCellDef>Presupuesto</th>
+        <td mat-cell *matCellDef="let requerimiento">{{ requerimiento.presupuesto | currency }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="unidad">
+        <th mat-header-cell *matHeaderCellDef>Unidad</th>
+        <td mat-cell *matCellDef="let requerimiento">{{ requerimiento.unidad }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="tipoBienServicio">
+        <th mat-header-cell *matHeaderCellDef>Tipo</th>
+        <td mat-cell *matCellDef="let requerimiento">{{ requerimiento.tipo_bien_servicio }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cantidad">
+        <th mat-header-cell *matHeaderCellDef>Cantidad</th>
+        <td mat-cell *matCellDef="let requerimiento">{{ requerimiento.cantidad }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="valorTotal">
+        <th mat-header-cell *matHeaderCellDef>Valor Total</th>
+        <td mat-cell *matCellDef="let requerimiento">{{ requerimiento.valor_total | currency }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="fechaAdquisicion">
+        <th mat-header-cell *matHeaderCellDef>Fecha Adquisición</th>
+        <td mat-cell *matCellDef="let requerimiento">{{ requerimiento.fecha_adquisicion | date }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="proveedor">
+        <th mat-header-cell *matHeaderCellDef>Proveedor</th>
+        <td mat-cell *matCellDef="let requerimiento">{{ requerimiento.proveedor }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="documentacion">
+        <th mat-header-cell *matHeaderCellDef>Documentación</th>
+        <td mat-cell *matCellDef="let requerimiento">{{ requerimiento.documentacion }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let requerimiento" class="acciones-cell">
+          <button mat-flat-button color="primary" [routerLink]="['/requerimientos', requerimiento.id]">Detalles</button>
+          <button
+            mat-flat-button
+            color="accent"
+            [routerLink]="['/requerimientos/editar', requerimiento.id]"
+            [disabled]="requerimiento.activo === 0"
+          >Editar</button>
+          <button mat-flat-button color="warn" (click)="requerimiento.id && desactivarRequerimiento(requerimiento.id)">Desactivar</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

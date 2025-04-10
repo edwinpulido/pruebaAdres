@@ -1,0 +1,70 @@
+<div class="container editar-requerimiento">
+  <h2>Editar Requerimiento</h2>
+  <form [formGroup]="requerimientoForm" (ngSubmit)="onSubmit()">
+    <div *ngIf="requerimientoForm" class="formulario-editar">
+      <div>
+        <label for="presupuesto">Presupuesto:</label>
+        <input type="number" id="presupuesto" formControlName="presupuesto" required>
+        <div *ngIf="requerimientoForm.get('presupuesto')?.invalid && (requerimientoForm.get('presupuesto')?.dirty || requerimientoForm.get('presupuesto')?.touched)">
+          <span *ngIf="requerimientoForm.get('presupuesto')?.errors?.['required']">El presupuesto es requerido.</span>
+        </div>
+      </div>
+      <div>
+        <label for="unidad">Unidad:</label>
+        <input type="text" id="unidad" formControlName="unidad" required>
+        <div *ngIf="requerimientoForm.get('unidad')?.invalid && (requerimientoForm.get('unidad')?.dirty || requerimientoForm.get('unidad')?.touched)">
+          <span *ngIf="requerimientoForm.get('unidad')?.errors?.['required']">La unidad es requerida.</span>
+        </div>
+      </div>
+      <div>
+        <label for="tipoBienServicio">Tipo de Bien o Servicio:</label>
+        <input type="text" id="tipoBienServicio" formControlName="tipoBienServicio" required>
+        <div *ngIf="requerimientoForm.get('tipoBienServicio')?.invalid && (requerimientoForm.get('tipoBienServicio')?.dirty || requerimientoForm.get('tipoBienServicio')?.touched)">
+          <span *ngIf="requerimientoForm.get('tipoBienServicio')?.errors?.['required']">El tipo es requerido.</span>
+        </div>
+      </div>
+      <div>
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" formControlName="cantidad" (input)="calcularValorTotal()" required min="1">
+        <div *ngIf="requerimientoForm.get('cantidad')?.invalid && (requerimientoForm.get('cantidad')?.dirty || requerimientoForm.get('cantidad')?.touched)">
+          <span *ngIf="requerimientoForm.get('cantidad')?.errors?.['required']">La cantidad es requerida.</span>
+          <span *ngIf="requerimientoForm.get('cantidad')?.errors?.['min']">La cantidad debe ser mayor a 0.</span>
+        </div>
+      </div>
+      <div>
+        <label for="valorUnitario">Valor Unitario:</label>
+        <input type="number" id="valorUnitario" formControlName="valorUnitario" (input)="calcularValorTotal()" required min="0">
+        <div *ngIf="requerimientoForm.get('valorUnitario')?.invalid && (requerimientoForm.get('valorUnitario')?.dirty || requerimientoForm.get('valorUnitario')?.touched)">
+          <span *ngIf="requerimientoForm.get('valorUnitario')?.errors?.['required']">El valor unitario es requerido.</span>
+          <span *ngIf="requerimientoForm.get('valorUnitario')?.errors?.['min']">El valor unitario debe ser mayor o igual a 0.</span>
+        </div>
+      </div>
+      <div>
+        <label for="valorTotal">Valor Total:</label>
+        <input type="number" id="valorTotal" formControlName="valorTotal" [readonly]="true">
+      </div>
+      <div>
+        <label for="fechaAdquisicion">Fecha de Adquisición:</label>
+        <input type="date" id="fechaAdquisicion" formControlName="fechaAdquisicion" required>
+        <div *ngIf="requerimientoForm.get('fechaAdquisicion')?.invalid && (requerimientoForm.get('fechaAdquisicion')?.dirty || requerimientoForm.get('fechaAdquisicion')?.touched)">
+          <span *ngIf="requerimientoForm.get('fechaAdquisicion')?.errors?.['required']">La fecha de adquisición es requerida.</span>
+        </div>
+      </div>
+      <div>
+        <label for="proveedor">Proveedor:</label>
+        <input type="text" id="proveedor" formControlName="proveedor" required>
+        <div *ngIf="requerimientoForm.get('proveedor')?.invalid && (requerimientoForm.get('proveedor')?.dirty || requerimientoForm.get('proveedor')?.touched)">
+          <span *ngIf="requerimientoForm.get('proveedor')?.errors?.['required']">El proveedor es requerido.</span>
+        </div>
+      </div>
+      <div class="documentacion-campo">
+        <label for="documentacion">Documentación (Opcional):</label>
+        <textarea id="documentacion" formControlName="documentacion"></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" [disabled]="requerimientoForm.invalid">Guardar Cambios</button>
+        <button routerLink="/requerimientos">Cancelar</button>
+      </div>
+    </div>
+  </form>
+</div>

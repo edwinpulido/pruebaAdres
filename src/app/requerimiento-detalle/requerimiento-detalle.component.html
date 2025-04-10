@@ -1,0 +1,42 @@
+<div class="container detalle-requerimiento">
+  <h2>Detalles del Requerimiento</h2>
+  <div *ngIf="requerimiento" class="requerimiento-detalles">
+    <p><strong>ID:</strong> {{ requerimiento.id }}</p>
+    <p><strong>Presupuesto:</strong> {{ requerimiento.presupuesto | currency }}</p>
+    <p><strong>Unidad:</strong> {{ requerimiento.unidad }}</p>
+    <p><strong>Tipo de Bien o Servicio:</strong> {{ requerimiento.tipo_bien_servicio }}</p>
+    <p><strong>Cantidad:</strong> {{ requerimiento.cantidad }}</p>
+    <p><strong>Valor Unitario:</strong> {{ requerimiento.valor_unitario | currency }}</p>
+    <p><strong>Valor Total:</strong> {{ requerimiento.valor_total | currency }}</p>
+    <p><strong>Fecha de Adquisición:</strong> {{ requerimiento.fecha_adquisicion | date }}</p>
+    <p><strong>Proveedor:</strong> {{ requerimiento.proveedor }}</p>
+    <p><strong>Documentación:</strong> {{ requerimiento.documentacion }}</p>
+  </div>
+
+  <h3>Historial de Modificaciones</h3>
+  <div *ngIf="historial && historial.length > 0" class="historial-modificaciones">
+    <div class="table-responsive">
+      <table class="requerimientos-table">
+        <thead>
+          <tr>
+            <th class="mat-header-cell">ID</th>
+            <th class="mat-header-cell">Fecha de Cambio</th>
+            <th class="mat-header-cell">Detalles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let historialItem of historial" class="mat-row">
+            <td class="mat-cell">{{ historialItem.id }}</td>
+            <td class="mat-cell">{{ historialItem.fecha_cambio | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+            <td class="mat-cell">{{ historialItem.detalles }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p *ngIf="!historial || historial.length === 0">No hay historial de modificaciones para este requerimiento.</p>
+
+  <div class="form-actions">
+    <button routerLink="/requerimientos">Volver a la Lista</button>
+  </div>
+</div>

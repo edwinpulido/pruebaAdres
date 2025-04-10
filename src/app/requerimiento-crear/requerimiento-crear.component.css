@@ -1,0 +1,125 @@
+/* requerimiento-crear.component.css */
+h2 {
+    color: #1A3B6F;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #00A79D;
+    padding-bottom: 15px;
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  form {
+    padding: 30px;
+    background-color: #F7F9FC;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    font-family: sans-serif;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 30px auto;
+  }
+  
+  form > div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  input[type="number"],
+  input[type="text"],
+  input[type="date"],
+  textarea {
+    padding: 10px;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    min-height: 100px;
+    width: 100%;
+  }
+  
+  div > span {
+    color: #FF4500;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  
+  button {
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
+    line-height: normal !important;
+    min-width: unset !important;
+    height: auto !important;
+  }
+  
+  button[type="submit"] {
+    background-color: #00A79D;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #008077;
+  }
+  
+  button:last-child {
+    background-color: #1A3B6F;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    margin-left: 10px;
+  }
+  
+  button:last-child:hover {
+    background-color: #132B52;
+  }
+  
+  form > div:last-child {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+
+  form > div:nth-child(9) {
+    grid-column: 1 / -1; 
+  }
+  
+  /* response */
+  @media (max-width: 600px) {
+    form {
+      grid-template-columns: 1fr;
+      max-width: 95%;
+      margin: 20px auto;
+    }
+  
+    button {
+      width: 100%;
+      margin-bottom: 10px;
+      margin-left: 0;
+    }
+  
+    form > div:last-child {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+    }
+  
+    form > div:nth-child(9) {
+      grid-column: 1 / -1;
+    }
+  }
