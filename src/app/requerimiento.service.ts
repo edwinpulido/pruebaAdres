@@ -57,13 +57,8 @@ export class RequerimientoService {
   }
 
   actualizarRequerimiento(id: number, requerimiento: Requerimiento): Observable<Requerimiento | undefined> {
-    const index = this.requerimientos.findIndex(r => r.id === id && r.activo);
-    if (index !== -1) {
-      const original = { ...this.requerimientos[index] };
-      this.requerimientos[index] = { ...requerimiento, id: id, activo: 1, historial: [...(this.requerimientos[index].historial || []), original] };
-      return this.http.put<Requerimiento>(`${this.apiUrl}/${id}`, requerimiento); 
-    }
-    return of(undefined);
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put<Requerimiento>(url, requerimiento); 
   }
 
   desactivarRequerimiento(id: number): Observable<any> { 
